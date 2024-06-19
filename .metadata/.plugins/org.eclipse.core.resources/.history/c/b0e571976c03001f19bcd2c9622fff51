@@ -1,0 +1,9 @@
+package com.smhrd.myapp.mapper;
+
+import com.smhrd.myapp.entity.Member;
+
+public interface MemberMapper {
+
+	
+	
+}

@@ -1,0 +1,32 @@
+package com.smhrd.myapp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.smhrd.myapp.entity.Member;
+import com.smhrd.myapp.mapper.MemberMapper;
+import com.smhrd.myapp.vo.MemberVO;
+
+@Controller
+public class ServiceControll {
+
+	@Autowired
+	private MemberMapper mapper;
+	
+	
+	@PostMapping("/join-process")
+	public String joinProcess(MemberVO vo) {
+		System.out.println(" 수집된 데이터 >> " + vo);
+		Member entity = new Member(vo);
+		mapper.save(entity);
+		// update sql구문도 save 처리
+		// save(entity)
+		// --> entity안에 idx가 없으면, insert 진행
+		// --> entity안에 idx가 채워져있으면, update 진행
+		
+		return "redirect:/";
+	
+	}
+	
+}

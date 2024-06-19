@@ -1,0 +1,17 @@
+package com.smhrd.myapp.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.smhrd.myapp.entity.MemberEntity;
+
+@Mapper // Bean으로 등록하기 위한 annotation
+public interface MemberMapper extends JpaRepository<MemberEntity, Long>{
+	
+	// Spring MVC
+	// SqlSessionFactoryBean 구현체를 만들어서 사용
+	// Springboot
+	// Hibernate 구현체를 만들어서 사용
+	// ---> SpringbootContainer안쪽에 해당 클래스가 등록되어있어야함
+	
+}

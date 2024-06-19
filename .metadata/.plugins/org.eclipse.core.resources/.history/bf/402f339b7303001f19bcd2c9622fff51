@@ -1,0 +1,35 @@
+package com.smhrd.myapp.entity;
+
+import com.smhrd.myapp.dto.MemberDTO;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Member {
+
+	public Member(MemberDTO dto) {
+		this.id = dto.getId();
+		this.pw = dto.getPw();
+		userid = dto.getUserid();
+		role = dto.getRole();
+	}
+	
+	
+	@Id
+	private long id; // pk
+	@Column(nullable = false)
+	private String userid; // not null
+	@Column(nullable = false)
+	private String pw; // not null
+	@Column(updatable = false, nullable = false)
+	private String role; // 역할, 권한 설정 때 사용 예정
+						 // default값 'user'
+}

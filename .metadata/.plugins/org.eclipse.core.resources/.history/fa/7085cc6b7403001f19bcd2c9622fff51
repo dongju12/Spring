@@ -1,0 +1,41 @@
+package com.smhrd.myapp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.smhrd.myapp.dto.MemberDTO;
+import com.smhrd.myapp.entity.Member;
+import com.smhrd.myapp.repo.MemberRepository;
+
+@Controller
+public class ServiceControll {
+
+	@Autowired
+	private MemberRepository repo;
+	
+	@PostMapping("/login-process")
+	public String loginProcess(MemberDTO dto) {
+		Member entity = repo.findByUserIdAndPw(dto.getUserid(), dto.getPw());
+		if(entity != null)
+			return "redirect:/dashboard";
+		
+		
+		return "redirect:/login";
+	}
+	
+	@PostMapping("/join-process")
+	public String joinProcess(MemberDTO dto) {
+		System.out.println(" 수집된 데이터 >> " + dto);
+		Member entity = new Member(dto);
+		repo.save(entity);
+		// update sql구문도 save 처리
+		// save(entity)
+		// --> entity안에 idx가 없으면, insert 진행
+		// --> entity안에 idx가 채워져있으면, update 진행
+		
+		return "redirect:/";
+	
+	}
+	
+}

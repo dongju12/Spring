@@ -1,0 +1,22 @@
+package com.smhrd.myapp.entity;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@EntityScan
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Member {
+
+	@Id
+	private Long id; // pk
+	private String userid; // not null
+	private String pw; // not null
+	private String role; // 역할, 권한 설정 때 사용 예정
+						 // default값 'user'
+}

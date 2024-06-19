@@ -1,0 +1,16 @@
+package com.smhrd.myapp.dtd;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class MemberVO {
+	
+	private long id;
+	private String userid; 
+	private String pw; 
+	private String role;
+}

@@ -1,0 +1,20 @@
+package com.smhrd.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.smhrd.db.BookMapper;
+
+@Controller
+public class BookController {
+	
+	@Autowired 	
+	private BookMapper mapper;
+	
+	@RequestMapping("/bookList.do")
+	public void bookList(Model model) {
+		BookVO list = 
+	}
+}

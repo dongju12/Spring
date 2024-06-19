@@ -1,0 +1,13 @@
+package com.smhrd.myapp.entity;
+
+import jakarta.persistence.Entity;
+
+@Entity // DB에 있는 Table을 표현하는 자료형
+public class MemberEntity {
+	
+	private String id;
+	private String pw;
+	private String name;
+	private String tel;
+	
+}

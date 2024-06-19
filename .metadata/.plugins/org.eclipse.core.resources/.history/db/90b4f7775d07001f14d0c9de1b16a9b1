@@ -1,0 +1,13 @@
+package kr.book.bshop.db;
+
+import java.util.List;
+
+import kr.book.bshop.model.BookVO;
+
+public interface BookMapper {
+
+	public List<BookVO> bookList();
+
+	public void bookInsert(BookVO vo);
+
+}
